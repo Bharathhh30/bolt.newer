@@ -11,7 +11,12 @@ const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
 
 const app = express()
 app.use(express.json())
-app.use(cors())
+const corsOptions = {
+    origin: "*", // Allow only frontend running on port 5174 (now allow from everywhere)
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true, // Allow cookies or authentication headers
+  };
+app.use(cors(corsOptions))
 
 
 
