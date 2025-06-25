@@ -118,5 +118,5 @@ app.post("/chat", async (req, res) => {
 
 
 
-
+console.log("sertver running")
 app.listen(3000)
