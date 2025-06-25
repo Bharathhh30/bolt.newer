@@ -4,12 +4,15 @@ import express from 'express'
 import { BASE_PROMPT, getSystemPrompt } from "./prompts";
 import {basePrompt as nodeBasePrompt} from "./defaults/node";
 import {basePrompt as reactBasePrompt} from "./defaults/react";
+import cors from "cors";
 
 
 const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
 
 const app = express()
 app.use(express.json())
+app.use(cors())
+
 
 
 app.post("/template", async (req, res) => {
